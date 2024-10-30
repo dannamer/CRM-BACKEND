@@ -1,0 +1,9 @@
+[submodule "PROFILE-SERVICE"]
+	path = PROFILE-SERVICE
+	url = git@github.com:Maden-in-haven/PROFILE-SERVICE.git
+[submodule "AUTH-SERVICE"]
+	path = AUTH-SERVICE
+	url = git@github.com:Maden-in-haven/AUTH-SERVICE.git
+[submodule "ADMIN-SERVICE"]
+	path = ADMIN-SERVICE
+	url = git@github.com:Maden-in-haven/ADMIN-SERVICE.git

@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: ./AUTH-SERVICE  # Путь к Dockerfile для auth-service
+    container_name: auth-service
+    networks:
+      - webnet
+  admin-service:
+    build:
+      context: ./ADMIN-SERVICE  # Путь к Dockerfile для admin-service
+    container_name: admin-service
+    networks:
+      - webnet
+  profile-service:
+    build:
+      context: ./PROFILE-SERVICE  # Путь к Dockerfile для profile-service
+    container_name: profile-service
+    networks:
+      - webnet
+  nginx-proxy:
+    image: nginx:latest
+    container_name: nginx-proxy
+    ports:
+      - "80:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - webnet
+    depends_on:
+      - auth-service
+      - admin-service
+      - profile-service
+
+networks:
+  webnet:
+    driver: bridge
